@@ -8,8 +8,8 @@ from db.models import Actor, Genre
 def main() -> QuerySet:
     Genre.objects.bulk_create([
         Genre(name="Western"),
-        Genre(name = "Action"),
-        Genre(name = "Dramma"),
+        Genre(name="Action"),
+        Genre(name="Dramma"),
     ])
 
     Actor.objects.bulk_create([
@@ -32,11 +32,12 @@ def main() -> QuerySet:
     ).update(first_name="Keanu", last_name="Reeves")
 
     Genre.objects.filter(name="Action").delete()
-    Actor.objects.filter(first_name = "Scarlett").delete()
+    Actor.objects.filter(first_name="Scarlett").delete()
 
     return Actor.objects.filter(
         last_name="Smith"
     ).order_by("first_name")
+
 
 if __name__ == "__main__":
 
